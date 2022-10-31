@@ -1,0 +1,38 @@
+
+<h1>My Cart</h1>
+
+<div *ngIf="checkEmptyCart(); then emptyCart else showCart"></div>
+
+<ng-template #emptyCart>
+    <h2 class="empty">Looks like your cart is empty!</h2>
+</ng-template>
+
+<ng-template #showCart>
+<div class="cart-grid">
+    <h2 id="extra-padding">Item</h2>
+    <h2>Price</h2>
+    <h2>Subtotal</h2>
+</div>
+<div *ngFor="let item of items" class="cart-grid">
+    <a [routerLink]="['/product', item.id]" class="item-name">
+        <img src="{{item.imageGridUrl}}" width="100px">
+        <h3>{{ item.name }}</h3>
+    </a>
+    <h3>{{ item.price | currency }}</h3>
+    <div class="item-price">
+        <h3>{{ getSubtotalPrice(item.id, item.price) | currency }}</h3>
+        <span>({{ getQuantity(item.id) }} item/s)</span>
+    </div>
+    <div>
+        <button type="button" class="add-button" (click)="removeFromCart(item)">-</button>
+        <button type="button" class="add-button" (click)="addToCart(item)">+</button>
+    </div>
+</div>
+
+<div class="total">
+    <h3>Total:</h3>
+    <h2>{{ getTotalPrice() | currency }}</h2>
+    <a [routerLink]="['/checkout']"><button type="button">Checkout</button></a>
+    <button type="button" (click)="clearCart()" id="clear">Clear Cart</button>
+</div>
+</ng-template>

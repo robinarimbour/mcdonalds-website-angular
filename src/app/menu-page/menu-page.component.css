@@ -1,0 +1,11 @@
+
+.category {
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.category h2 {
+    margin-top: 70px;
+    margin-bottom: 50px;
+    font-size: 35px;
+}

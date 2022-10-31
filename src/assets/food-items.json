@@ -1,0 +1,138 @@
+[
+    {
+        "id": 1,
+        "name": "Hot Chocolate",
+        "descriptions": ["Taste the delicious chocolatey flavor of McCafé® Hot Chocolate. McDonald’s Hot Chocolate recipe features steamed whole milk with rich hot chocolate syrup and is finished with whipped light cream and chocolate drizzle. Available in small, medium and large sizes. There are 370 calories in a small Hot Chocolate from McDonald’s."],
+        "imageGridUrl": "../assets/images/items/grid/1.jfif",
+        "imageFullUrl": "../assets/images/items/full/1.jfif",
+        "price": 30
+    },
+    {
+        "id": 2,
+        "name": "Egg McMuffin®",
+        "descriptions": ["Our Egg McMuffin® breakfast sandwich is an excellent source of protein and oh so delicious. We place a freshly cracked Grade A egg on a toasted English Muffin topped with real butter and add lean Canadian bacon and melty American cheese. There are 310 calories in an Egg McMuffin®."],
+        "imageGridUrl": "../assets/images/items/grid/2.jfif",
+        "imageFullUrl": "../assets/images/items/full/2.jfif",
+        "price": 50
+    },
+    {
+        "id": 3,
+        "name": "Hotcakes",
+        "descriptions": ["If you love pancakes, you've got to try McDonald's hotcakes with a side of real butter and sweet maple flavored hotcake syrup. This McDonald's breakfast comes with 3 golden brown hotcakes. There are 580 calories in McDonald's hotcakes."],
+        "imageGridUrl": "../assets/images/items/grid/3.jfif",
+        "imageFullUrl": "../assets/images/items/full/3.jfif",
+        "price": 40
+    },
+    {
+        "id": 4,
+        "name": "Fruit & Maple Oatmeal",
+        "descriptions": ["McDonald's Fruit and Maple Oatmeal recipe feature two full servings of whole-grain oats with a touch of cream and brown sugar. Loaded with red and green apples, cranberries, and two varieties of raisins, our oatmeal makes for a hearty, wholesome breakfast of whole grains and fruit. There are 320 calories in a Fruit and Maple Oatmeal from McDonald's."],
+        "imageGridUrl": "../assets/images/items/grid/4.jfif",
+        "imageFullUrl": "../assets/images/items/full/4.jfif",
+        "price": 30
+    },
+    {
+        "id": 5,
+        "name": "Big Mac®",
+        "descriptions": ["Ever wondered what's on a Big Mac®? The McDonald's Big Mac® is a 100% beef burger with a taste like no other. The mouthwatering perfection starts with two 100% pure all beef patties and Big Mac® sauce sandwiched between a sesame seed bun. It’s topped off with pickles, crisp shredded lettuce, finely chopped onion, and a slice of American cheese. It contains no artificial flavors, preservatives, or added colors from artificial sources. Our pickle contains an artificial preservative, so skip it if you like.", "", "There are 550 calories in a Big Mac® from McDonald's. Pair it with any of our beverages or grab a Big Mac® Combo Meal with our World Famous Fries® and Coca-Cola® or any of your favorite fountain drinks."],
+        "imageGridUrl": "../assets/images/items/grid/5.jfif",
+        "imageFullUrl": "../assets/images/items/full/5.jfif",
+        "price": 60
+    },
+    {
+        "id": 6,
+        "name": "Double Quarter Pounder®* with Cheese",
+        "descriptions": ["Each Double Quarter Pounder with Cheese features two quarter pound* 100% fresh beef burger patties that are hot, deliciously juicy and cooked when you order. McDonald’s beef patties are seasoned with just a pinch of salt and pepper, sizzled on a flat iron grill, then topped with slivered onions, tangy pickles and two slices of melty cheese on a sesame seed bun. It contains no artificial flavors, preservatives or added colors from artificial sources.** Our pickle contains an artificial preservative, so skip it if you like.", "", "*Weight before cooking 4 oz. (ea.).", "**National sandwiches only. Excludes local and limited time options."],
+        "imageGridUrl": "../assets/images/items/grid/6.jfif",
+        "imageFullUrl": "../assets/images/items/full/6.jfif",
+        "price": 60
+    },
+    {
+        "id": 7,
+        "name": "Cheeseburger",
+        "descriptions": ["Our simple, classic cheeseburger begins with a 100% pure beef burger seasoned with just a pinch of salt and pepper. The McDonald’s Cheeseburger is topped with a tangy pickle, chopped onions, ketchup, mustard, and a slice of melty American cheese. It contains no artificial flavors, preservatives or added colors from artificial sources.* Our pickle contains an artificial preservative, so skip it if you like."],
+        "imageGridUrl": "../assets/images/items/grid/7.jfif",
+        "imageFullUrl": "../assets/images/items/full/7.jfif",
+        "price": 50
+    },
+    {
+        "id": 8,
+        "name": "Double Cheeseburger",
+        "descriptions": ["The McDonald's Double Cheeseburger features two 100% pure all beef patties seasoned with just a pinch of salt and pepper. It's topped with tangy pickles, chopped onions, ketchup, mustard, and two melty American cheese slices. Wondering what is the difference between McDouble and Double Cheeseburger? It's the extra slice of American cheese in the Double Cheeseburger.", "", "There are 450 calories in a McDonald's Double Cheeseburger."],
+        "imageGridUrl": "../assets/images/items/grid/8.jfif",
+        "imageFullUrl": "../assets/images/items/full/8.jfif",
+        "price": 55
+    },
+    {
+        "id": 9,
+        "name": "Quarter Pounder®* with Cheese Deluxe",
+        "descriptions": ["McDonald's Quarter Pounder® with Cheese Deluxe is a fresh take on a Quarter Pounder® classic burger. Crisp shredded lettuce and three Roma tomato slices top a ¼ lb.* of 100% McDonald’s fresh beef that’s hot, deliciously juicy and cooked when you order. Seasoned with just a pinch of salt and pepper and sizzled on our flat iron grill. Layered with two slices of melty American cheese, creamy mayo, slivered onions and tangy pickles on a soft, fluffy sesame seed hamburger bun. There are 630 calories in a Quarter Pounder with Cheese Deluxe."],
+        "imageGridUrl": "../assets/images/items/grid/9.jfif",
+        "imageFullUrl": "../assets/images/items/full/9.jfif",
+        "price": 70
+    },
+    {
+        "id": 10,
+        "name": "McDouble®",
+        "descriptions": ["The classic McDouble® burger stacks two 100% pure beef patties seasoned with just a pinch of salt and pepper. Wondering what the difference is between a McDouble® and a Double Cheeseburger? A slice of cheese! It’s topped with tangy pickles, chopped onions, ketchup, mustard and a melty slice of American cheese. The McDouble® contains no artificial flavors, preservatives or added colors from artificial sources."],
+        "imageGridUrl": "../assets/images/items/grid/10.jfif",
+        "imageFullUrl": "../assets/images/items/full/10.jfif",
+        "price": 60
+    },
+    {
+        "id": 11,
+        "name": "McFlurry® with OREO® Cookies",
+        "descriptions": ["The McDonald’s McFlurry® with OREO® Cookies is a popular combination of creamy vanilla soft serve with crunchy pieces of OREO® cookies! Available in regular and snack sizes. There are 510 calories in a regular size OREO® McFlurry® at McDonald's."],
+        "imageGridUrl": "../assets/images/items/grid/11.jfif",
+        "imageFullUrl": "../assets/images/items/full/11.jfif",
+        "price": 50
+    },
+    {
+        "id": 12,
+        "name": "Hot Fudge Sundae",
+        "descriptions": ["Our classic hot fudge sundae is made with creamy vanilla soft serve and smothered in chocolaty hot fudge topping. There are 330 calories in a Hot Fudge Sundae at McDonald's."],
+        "imageGridUrl": "../assets/images/items/grid/12.jfif",
+        "imageFullUrl": "../assets/images/items/full/12.jfif",
+        "price": 45
+    },
+    {
+        "id": 13,
+        "name": "Cappuccino",
+        "descriptions": ["McCafé® Cappuccino is made with whole steamed milk, bold espresso made from sustainably sourced beans, foamed milk, and your choice of flavor. There are 120 calories in a small McDonald's Cappuccino with whole milk."],
+        "imageGridUrl": "../assets/images/items/grid/13.jfif",
+        "imageFullUrl": "../assets/images/items/full/13.jfif",
+        "price": 40
+    },
+    {
+        "id": 14,
+        "name": "Latte",
+        "descriptions": ["Want to know what's in a Latte from McDonald's? Our McCafé® Latte is made from Rainforest Alliance Certified™ espresso and steamed milk. Customize the Hot Latte that’s made fresh just for you with whole milk, mixed with your choice of flavor at certain locations.", "", "Available in small, medium, and large. There are 140 calories in a small Latte with whole milk at McDonald's."],
+        "imageGridUrl": "../assets/images/items/grid/14.jfif",
+        "imageFullUrl": "../assets/images/items/full/14.jfif",
+        "price": 40
+    },
+    {
+        "id": 15,
+        "name": "Strawberry Banana Smoothie",
+        "descriptions": ["The McCafé® Strawberry Banana Smoothie recipe features the perfect combination of real strawberry and banana fruit purees and juices, blended with creamy low fat yogurt and ice. As a part of the McCafé® Menu, Strawberry Banana Smoothie is available in small, medium, and large sizes. There are 190 calories in a small McDonald's Strawberry Banana Smoothie."],
+        "imageGridUrl": "../assets/images/items/grid/15.jfif",
+        "imageFullUrl": "../assets/images/items/full/15.jfif",
+        "price": 40
+    },
+    {
+        "id": 16,
+        "name": "World Famous Fries®",
+        "descriptions": ["McDonald's World Famous Fries® are made with premium potatoes such as the Russet Burbank and the Shepody. With 0g of trans fat per labeled serving, these epic fries are crispy and golden on the outside and fluffy on the inside."],
+        "imageGridUrl": "../assets/images/items/grid/16.jfif",
+        "imageFullUrl": "../assets/images/items/full/16.jfif",
+        "price": 40
+    },
+    {
+        "id": 17,
+        "name": "Diet Coke®",
+        "descriptions": ["Try a refreshing, icy cold Diet Coke® from McDonald’s! There are zero calories and zero sugar in Diet Coke® which makes it a perfect staple to any McDonald's meal available."],
+        "imageGridUrl": "../assets/images/items/grid/17.jfif",
+        "imageFullUrl": "../assets/images/items/full/17.jfif",
+        "price": 30
+    }
+]

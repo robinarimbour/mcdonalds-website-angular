@@ -1,0 +1,58 @@
+
+.group {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    margin-top: 150px;
+    margin-right: 20px;
+}
+
+.group img {
+    align-self: center;
+}
+
+.text-group {
+    padding: 20px;
+    text-align: left;
+}
+
+.text-group h1 {
+    font-size: 50px;
+    text-align: left;
+}
+
+.text-group h2 {
+    margin: 10px 4px;
+}
+
+.text-group ul {
+    padding: 0;
+}
+
+.text-group li {
+    list-style: none;
+    padding: 10px 4px;
+}
+
+.buy-button {
+    padding: 0;
+    margin: 20px 4px 10px 4px;
+    width: 200px;
+    height: 60px;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.qty-span {
+    background-color: rgb(205, 205, 205);
+    padding: 0;
+    margin: 20px 0px 10px 0px;
+    width: 92px;
+    height: 60px;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+}
+
+.qty-span:hover {
+    background-color: rgba(205, 205, 205, 1);
+}

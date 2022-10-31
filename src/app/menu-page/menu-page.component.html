@@ -1,0 +1,8 @@
+<h1>Our Menu</h1>
+
+<div *ngFor="let category of categories" class="category">
+    <h2>{{ category.name }}</h2>
+
+    <app-product-list [productIds]="category.products">
+    </app-product-list>
+</div>

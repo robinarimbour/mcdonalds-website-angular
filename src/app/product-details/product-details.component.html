@@ -1,0 +1,26 @@
+
+<div *ngIf="product" class="group">
+    <img src="{{ product.imageFullUrl }}">
+    <div class="text-group">
+        <h1>{{ product.name }}</h1>
+        <ul>
+            <div *ngFor="let description of product.descriptions">
+                <li>{{ description }}</li>
+            </div>
+        </ul>
+        <h2>{{ product.price | currency }}</h2>
+        <div>
+            <div *ngIf="checkQuantity(product.id); then buyButton else qtyButton"></div>
+            <ng-template #buyButton>
+                <button type="button" class="buy-button" (click)="addToCart(product)">Buy</button>
+            </ng-template>
+
+            <ng-template #qtyButton>
+                <button type="button" class="add-button" (click)="removeFromCart(product)">-</button>
+                <button class="qty-span">{{getQuantity(product.id)}}</button>
+                <button type="button" class="add-button" (click)="addToCart(product)">+</button>
+            </ng-template>
+            
+        </div>
+    </div>
+</div>

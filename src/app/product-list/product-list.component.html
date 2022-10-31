@@ -1,0 +1,14 @@
+
+<div class="product-group">
+    <ul *ngFor="let product of products" class="product">
+        <li>
+            <a [routerLink]="['/product', product.id]">
+                <img src="{{product.imageGridUrl}}" width="200">
+
+                <h3>
+                    {{ product.name }}
+                </h3>
+            </a>
+        </li>
+    </ul>
+</div>

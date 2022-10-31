@@ -1,0 +1,88 @@
+
+form {
+    padding: 0px 5px;
+}
+
+h1 {
+    text-align: left;
+}
+
+h2 {
+    margin-top: 30px;
+}
+
+label {
+    font-size: 12px;
+    padding-left: 8px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input, select {
+    width: 100%;
+    font-size: 20px;
+    padding: 0px 8px 0px 8px;
+    border-style: none;
+    outline: 0;
+}
+
+select {
+    cursor: pointer;
+}
+
+button {
+    padding: 9px;
+    margin: 40px 25px;
+    width: 160px;
+    height: 60px;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(0, 170, 0);
+    columns: white;
+}
+
+button:hover {
+    background-color: rgba(0, 170, 0, 0.8);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#half-length {
+    width: 70%;
+}
+
+#full-length {
+    width: 92.3%;
+}
+
+.outer-group {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    width: 80vw;
+}
+
+.input-group {
+    margin: 15px 10px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px 0px;
+}
+
+.inline-group {
+    display:inline-flex;
+    width: 95%;
+}
+
+#order-details {
+    justify-content: space-between;
+}
+
+#order-details h2, #order-details h3, #order-details h4{
+    margin: 5px 10px;
+}
