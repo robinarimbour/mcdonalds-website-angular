@@ -1,0 +1,23 @@
+
+<h2>Transaction Complete!</h2>
+
+<mat-dialog-content>
+    <h4>Order Details:</h4>
+    <div *ngFor="let cartItem of data.cartItems">
+        <p>{{ cartItem.product.name }} ({{ cartItem.quantity }}): {{ cartItem.product.price * cartItem.quantity | currency }}</p>
+    </div>
+
+    <p>Estimated Tax: {{ data.tax | currency }}</p> 
+    <p class="total">Total: {{ data.totalPrice | currency }}</p> 
+
+    <h4>Payment Details</h4>
+    <div>
+        <p>Name: {{ data.firstName }} {{ data.lastName }}</p>
+        <p>Phone Number: {{ data.phone }}</p>
+        <p>Credit Card Number: {{ data.creditCard }}</p>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button type="button" aria-label="close dialog" (click)="close()">Ok</button>
+</mat-dialog-actions>

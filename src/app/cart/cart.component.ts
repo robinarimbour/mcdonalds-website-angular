@@ -1,6 +1,5 @@
-import { mainTitle } from './../my-config';
-import { Title } from '@angular/platform-browser';
-import { Product } from './../product';
+
+import { Product, CartItem } from '../data';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 
@@ -10,44 +9,28 @@ import { CartService } from '../cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
-  items = this.cartService.getItems();
   
-  constructor(
-    private cartService: CartService,
-    private title: Title
-  ) { 
-    this.title.setTitle('My Cart: ' + mainTitle);
+  constructor(private cartService: CartService) { }
+
+  ngOnInit(): void { }
+
+  getItems(): CartItem[] {
+    return this.cartService.getItems();
   }
 
-  ngOnInit(): void {
+  isCartEmpty(): boolean {
+    return this.cartService.getCartSize() === 0;
   }
 
-  checkEmptyCart() {
-    return this.cartService.checkEmptyCart();
+  updateQuantity(product: Product, increament: number): void {
+    this.cartService.updateQuantity(product, increament);
   }
-
-  getQuantity(id: number){
-    return this.cartService.getQuantity(id);
-  }
-
-  getSubtotalPrice(id: number, price: number) {
-    return price * this.cartService.getQuantity(id)!;
-  }
-
-  getTotalPrice() {
+  
+  getTotalPrice(): number {
     return this.cartService.getTotalPrice();
   }
 
-  addToCart(product: Product) {
-    this.cartService.addToCart(product);
-  }
-
-  removeFromCart(product: Product) {
-    this.cartService.removeFromCart(product);
-  }
-
-  clearCart() {
+  clearCart(): void {
     this.cartService.clearCart();
   }
 }

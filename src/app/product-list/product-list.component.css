@@ -1,25 +1,25 @@
 
-.product-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    padding-top: 50px;
-    padding-bottom: 20px;
+.card-div {
+    max-width: var(--body-max-width);
+    margin: 0 auto;
 }
 
-.product {
-    padding-inline-start: 0px;
-    padding: 0px 20px 40px 20px;
+.mat-card {
+    margin-top: 50px;
 }
 
-.product li {
-    list-style: none;
-}
-
-.product a {
-    color: inherit;
-}
-
-.product h3 {
-    margin-top: 10px;
+.mat-card-title {
     font-size: 20px;
+    justify-content: center;
+    color: black;
+}
+
+@media only screen and (max-width: 599.98px) {
+    .card-div {
+        justify-content: center;
+    }
+
+    .mat-card-title {
+        font-size: 16px;
+    }
 }

@@ -1,30 +1,54 @@
 
-.header {
-    position: absolute;
+.sidenav-container {
+    padding-top: 5px;
+}
+
+.sidenav {
+    min-width: 35vw;
+    background: white;
+    padding: 4px 0 0 5px;
+}
+
+.sidenav .mat-list-item, a {
+    color: black;
+}
+
+.sidenav .mat-toolbar {
+    background: rgb(253,184,18);
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 8px;
+}
+
+.mat-toolbar.mat-primary {
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
+    z-index: 1;
+}  
+
+.sidenav-header {
+    background: white;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sidenav-header img {
+    vertical-align: middle;
+}
+
+.navbar {
     height: 100px;
+    max-width: var(--body-max-width);
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fdfffc;
-    border-style: none none solid none;
-    border-width: 0 0 1px 0;
-    color: black;
     font-weight: 500;
-}
-
-.header a {
-    color: inherit;
-}
-
-.logo {
-    margin-left: 200px;
+    padding: 0 5%;
 }
 
 .nav-links {
-    list-style: none;
     font-family: 'Roboto', sans-serif;
     height: 100%;
 }
@@ -38,12 +62,24 @@
     text-align: center;
 }
 
-.nav-links a:hover {
-    background-color: black;
-    color: white;
+.nav-links a:hover, .big-cart:hover {
+    background-color: var(--mcdonalds-yellow);
 }
 
-.cart-button {
-    margin-right: 200px;
-    font-weight: bolder;
+.big-cart {
+    transform: scale(1.5);
 }
+
+.white-bg {
+    background-color: white;
+}
+
+/* mat-badge-properties */
+.mat-badge.mat-badge {
+    overflow: visible;
+}
+
+.mat-badge {
+    position: relative;
+}
+/*************************/

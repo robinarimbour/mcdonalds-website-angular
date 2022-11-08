@@ -1,14 +1,10 @@
 
-<div class="product-group">
-    <ul *ngFor="let product of products" class="product">
-        <li>
-            <a [routerLink]="['/product', product.id]">
-                <img src="{{product.imageGridUrl}}" width="200">
-
-                <h3>
-                    {{ product.name }}
-                </h3>
-            </a>
-        </li>
-    </ul>
+<div fxLayout="row wrap" fxLayoutGap="50px" fxLayoutGap.xs="20px" class="card-div">
+    <mat-card *ngFor="let product of products" fxFlex="200px" fxFlex.xs="150px">
+        <a [routerLink]="['/product', product.id]">
+            <img mat-card-image width="200px" [src]="product.imageGridUrl" 
+            [alt]="[product.name, 'Image']">
+            <mat-card-title>{{ product.name }}</mat-card-title>
+        </a>
+    </mat-card>
 </div>

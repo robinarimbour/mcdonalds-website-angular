@@ -1,6 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
+:root {
+    --mcdonalds-yellow: rgb(253, 184, 18);
+    --mcdonalds-yellow-hover: rgba(253, 184, 18, 0.8);
+    --cart-red: rgb(223, 0, 0);
+    --cart-red-hover:rgba(223, 0, 0, 0.8);
+    --checkout-green: rgb(0, 170, 0);
+    --checkout-green-hover: rgba(0, 170, 0, 0.8);
+    --body-max-width: 1170px;
+    --xs-max-width: 599.98px;
+    --sm-max-width: 959.98px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    color: black;
+}
+
 h2,
 h3,
 h4,
@@ -15,10 +31,6 @@ h1 {
     margin: 40px 0;
 }
 
-p {
-    margin: 20px 4px;
-}
-
 a {
     cursor: pointer;
     text-decoration: none;
@@ -26,63 +38,83 @@ a {
 
 button {
     padding: 9px 25px;
-    background-color: rgb(253,184,18);
+    background-color: var(--mcdonalds-yellow);
     border: none;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
     color: black;
+    font-weight: 500;
 }
 
 button:hover {
-    background-color: rgba(253,184,18, 0.8);
+    background-color: var(--mcdonalds-yellow-hover);
 }
 
-.container {
-    display: flex;
-    margin: 100px auto 32px;
-    padding: 0 16px;
-    flex-direction: column;
-    align-items: center;
-}
-
-.footer {
-    margin: 200px 0px 100px 0px;
-    padding-top: 50px;
-    background-color: #fdfffc;
-}
-
-.add-button {
+.change-qty-button {
+    margin: 0 4px;
     padding: 0;
-    margin: 20px 4px 10px 4px;
-    width: 50px;
-    height: 60px;
-    font-size: 30px;
-    font-family: 'Roboto', sans-serif;
 }
 
-/*
-form {
-    width: 300px;
-    height: 40px;
-    margin: 0 10px;
+
+/* mat-dialog-container properties*/
+.mat-dialog-container {
+    box-shadow: 0px 11px 15px -7px rgb(0 0 0 / 20%), 0px 24px 38px 3px rgb(0 0 0 / 14%), 0px 9px 46px 8px rgb(0 0 0 / 12%);
+    background: white;
+    color: rgba(0, 0, 0, 0.87);
+}
+/***********************************/
+
+
+/* mat-badge-content properties*/
+.mat-badge-medium.mat-badge-overlap.mat-badge-after .mat-badge-content {
+    right: -11px;
 }
 
-input {
-    width: 100%;
-    height: 100%;
-    padding: 2px 25px;
-    border-radius: 50px;
+.mat-badge-medium.mat-badge-above .mat-badge-content {
+    top: -11px;
 }
-*/
+.mat-badge-warn .mat-badge-content {
+    color: #fff;
+    background: #f44336;
+}
+
+.mat-badge-medium .mat-badge-content {
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+}
+
+.mat-badge-hidden .mat-badge-content {
+    display: none;
+}
+
+.mat-badge-content.mat-badge-active {
+    transform: none;
+}
+
+.mat-badge-content {
+    position: absolute;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    transition: transform 200ms ease-in-out;
+    transform: scale(0.6);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    pointer-events: none;
+}
+/***********************************/
+
 
 * {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-sizing: border-box;
 }
 
-/*
-@media only screen and (max-width: 550px) {
-    
+@media only screen and (max-width: 959.98px) {
+    h1 {
+        font-size: 40px;
+    }
 }
-*/

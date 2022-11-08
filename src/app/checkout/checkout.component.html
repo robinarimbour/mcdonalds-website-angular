@@ -1,89 +1,97 @@
 <h1>Checkout</h1>
 
-<div class="outer-group">
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
-    <h2>1. Personal Information</h2>
-    
-    <div class="inline-group">
-        <div id="half-length" class="input-group">
-            <label for="first-name">First Name</label>
-            <input type="text" id="first-name" formControlName="firstName" placeholder="John">
+<div fxLayout.gt-sm="row" fxFlex.lt-md="column" fxLayoutGap.gt-sm="50px" class="main-div">
+    <div fxFlex.gt-sm="calc(66% - 50px)" class="form-div">
+        <h2>1. Personal Information</h2>
+        
+        <div class="form-line">
+            <div class="input-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" formControlName="firstName" placeholder="John">
+            </div>
+
+            <div class="input-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" formControlName="lastName" placeholder="Doe">
+            </div>
         </div>
 
-        <div id="half-length" class="input-group">
-            <label for="last-name">Last Name</label>
-            <input type="text" id="last-name" formControlName="lastName" placeholder="Doe">
+        <div class="input-group">
+            <label for="address">Address</label>
+            <input type="text" id="address" formControlName="address" placeholder="55 AI Henderson Drive, Virginia Beach, VA">
+        </div>
+
+        <div class="form-line">
+            <div class="input-group">
+                <label for="country">Country</label>
+                <select id="country" formControlName="country">
+                    <option value="Australia">Australia</option>
+                    <option value="Guyana">Guyana</option>
+                    <option value="USA">USA</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="postal-code">Postal Code</label>
+                <input type="tel" id="postal-code" formControlName="postalCode" maxlength="8" placeholder="32929">
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" formControlName="phone" maxlength="10" placeholder="(212)-345-6789">
+        </div>
+
+        <h2>2. Payment Details</h2>
+
+        <div class="input-group">
+            <label for="credit-card">Credit Card Number</label>
+            <input type="tel" id="credit-card" formControlName="creditCard" maxlength="19" placeholder="XXXX-XXXX-XXXX-XXXX">
+        </div>
+
+        <div class="form-line">
+            <div class="input-group">
+                <label for="code">Security Code</label>
+                <input type="password" id="code" formControlName="code" maxLength="4" placeholder="****">
+            </div>
+
+            <div class="input-group">
+                <label for="expiry">Expiration Date</label>
+                <input type="tel" id="expiry" formControlName="expiry" maxlength="5" placeholder="01/02">
+            </div>
         </div>
     </div>
 
-    <div id="full-length" class="input-group">
-        <label for="address">Address</label>
-        <input type="text" id="address" formControlName="address" placeholder="55 AI Henderson Drive, Virginia Beach, VA">
-    </div>
-
-    <div class="inline-group">
-        <div id="half-length" class="input-group">
-            <label for="country">Country</label>
-            <select id="country" formControlName="country">
-                <option value="Australia">Australia</option>
-                <option value="Guyana">Guyana</option>
-                <option value="USA">USA</option>
-            </select>
+    <div fxFlex.gt-sm="40%">
+        <h2>Your Order</h2>
+        <br>
+        <div *ngFor="let item of getItems()" class="inline-flex-div">
+            <h4>{{ item.product.name }} ({{ item.quantity }})</h4>
+            <h3>{{ item.product.price * item.quantity | currency }}</h3>
         </div>
 
-        <div id="half-length" class="input-group">
-            <label for="postal-code">Postal Code</label>
-            <input type="tel" id="postal-code" formControlName="postalCode" maxlength="8" placeholder="32929">
-        </div>
-    </div>
-
-    <div id="full-length" class="input-group">
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" formControlName="phone" maxlength="10" placeholder="(212)-345-6789">
-    </div>
-
-    <h2>2. Payment Details</h2>
-
-    <div id="full-length" class="input-group">
-        <label for="credit-card">Credit Card Number</label>
-        <input type="tel" id="credit-card" formControlName="creditCard" maxlength="19" placeholder="XXXX-XXXX-XXXX-XXXX">
-    </div>
-
-    <div class="inline-group">
-        <div id="half-length" class="input-group">
-            <label for="code">Security Code</label>
-            <input type="password" id="code" formControlName="code" [maxLength]="4" placeholder="****">
+        <br>
+        <br>
+        <div class="inline-flex-div">
+            <h4>Total Purchase</h4>
+            <h3>{{ getTotalPrice() | currency }}</h3>
         </div>
 
-        <div id="half-length" class="input-group">
-            <label for="expiry">Expiration Date</label>
-            <input type="tel" id="expiry" formControlName="expiry" maxlength="5" placeholder="01/02">
+        <div class="inline-flex-div">
+            <h4>Estimated Tax</h4>
+            <h3>{{ getTax() | currency }}</h3>
         </div>
-    </div>
 
-    <button type="submit">Confirm Order</button>
+        <br>
+        <br>
+        <br>
+        <div class="inline-flex-div">
+            <h3>Total</h3>
+            <h2>{{ getSumTotal() | currency }}</h2>
+        </div>
+
+        <button type="submit" aria-label="confirm order" class="submit-button">Confirm Order</button>
+    </div>
+</div>
 </form>
-
-<div>
-    <h2>Your Order</h2>
-    <br>
-    <div *ngFor="let item of items" class="inline-group" id="order-details">
-        <h4>{{ item.name }} ({{ getQuantity(item.id)}})</h4>
-        <h3>{{ getSubtotal(item) | currency }}</h3>
-    </div>
-
-    <br><br>
-    <div class="inline-group" id="order-details">
-        <h4>Total Purchase</h4><h3>{{ getTotalPrice() | currency }}</h3>
-    </div>
-
-    <div class="inline-group" id="order-details">
-        <h4>Estimated Tax</h4><h3>{{ getTax() | currency }}</h3>
-    </div>
-
-    <br><br><br>
-    <div class="inline-group" id="order-details">
-        <h3>Total</h3><h2>{{ getSumTotal() | currency }}</h2>
-    </div>
-</div>
-</div>

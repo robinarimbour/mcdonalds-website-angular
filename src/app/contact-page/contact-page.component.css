@@ -1,5 +1,28 @@
 
 .link {
-    margin-top: 100px;
+    margin: 100px 20px 20px 20px;
     text-align: center;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h3 {
+    color: blue;
+}
+
+.link img {
+    width: 100px;
+}
+
+@media only screen and (max-width: 959.98px) {
+    
+    .link img {
+        width: 70px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
 }

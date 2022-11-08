@@ -1,86 +1,131 @@
 
-h1 {
-    margin: 40px 25px;
-    text-align: left;
-}
-
-h2 {
-    padding: 0px 10px;
-}
-
-h3 {
-    align-self: center;
-    padding: 0px 10px;
-}
-
-#extra-padding {
-    padding-left: 30px;
-}
-
 .empty {
-    width: 85vw;
-    margin: 100px 10px 20px 10px;
-    padding: 5px 10px;
-    text-align: center;
+    margin-top: 100px;
 }
 
-.cart-grid {
+.main-div {
+    width: var(--sm-max-width);
+    margin: 20px auto;
+    align-items: flex-start;
+}
+
+.card-container {
     display: grid;
-    width: 85vw;
-    grid-template-columns: 2fr 0.5fr 1fr 0.5fr;
-    margin: 20px 10px;
-    padding: 5px 10px;
-    border-style: solid;
-    border-width: 2px;
+    grid-template-columns: 1fr 1fr 0.5fr;
+    align-items: center;
+    padding-left: 5%;
+    margin-bottom: 10px;
 }
 
-.cart-grid span {
-    align-self: center;
-}
-
-.item-name {
-    color: inherit;
-    display: flex;
-    float: left;
-}
-
-.item-name img {
-    margin: 4px 10px;
-}
-
-.item-price {
-    display: flex;
-    float: left;
-    align-self: center;
-}
-
-.total {
-    padding: 25px 10px 5px 50px;
-}
-
-.total h2, .total h3 {
-    display: inline-block;
-}
-
-.total h3 {
-    font-size: 23px;
-}
-
-.total button {
+.card-item img {
     width: 150px;
+}
+
+.card-item {
+    margin: 0 10px;
+}
+
+.mat-card {
+    padding: 0;
+}
+
+.mat-card-title {
+    font-size: 24px;
+}
+
+.mat-card-title a {
+    color: inherit;
+}
+
+.mat-card-title a:hover {
+    text-decoration: underline;
+}
+
+.mat-card-subtitle {
+    font-size: 16px;
+}
+
+.change-qty-button {
+    width: 35px;
+    height: 35px;
+}
+
+.change-qty-button .mat-icon {
+    transform: scale(0.7);
+}
+
+.check-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.check-container p {
+    font-size: small;
+}
+
+.check-container-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.check-button, .check-button button {
+    width: 140px;
     height: 50px;
-    font-size: 20px;
-    margin-left: 150px;
-    font-weight: bold;
+    font-size: 18px;
 }
 
-#clear {
-    background-color: rgb(223, 0, 0);
+.clear-button {
+    background-color: var(--cart-red);
     color: white;
-    float: right;
-    margin-right: 50px;
 }
 
-#clear:hover {
-    background-color: rgba(223, 0, 0, 0.8);
+.clear-button:hover {
+    background-color: var(--cart-red-hover);
+}
+
+@media only screen and (max-width: 959.98px) {
+    .empty {
+        font-size: large;
+    }
+
+    .main-div {
+        width: auto;
+        align-items: center;
+    }
+
+    .card-container {
+        padding-left: 0;
+    }
+
+    .mat-card-title {
+        font-size: 16px;
+    }
+    
+    .mat-card-subtitle {
+        font-size: auto;
+    }
+    
+    .card-item img {
+        width: 100px;
+    }
+
+    .change-qty-button {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .check-container p {
+        font-size: x-small;
+    }    
+    
+    .check-button, .check-button button {
+        width: 120px;
+        height: 40px;
+        font-size: 14px;
+    }
+
 }

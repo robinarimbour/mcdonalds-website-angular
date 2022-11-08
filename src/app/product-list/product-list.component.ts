@@ -1,5 +1,5 @@
 
-import { Product, products } from '../product';
+import { Product, products } from '../data';
 import { Input, Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,12 +11,13 @@ export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
   @Input() productIds: number[] | undefined;
+
   constructor() { }
 
   ngOnInit(): void {
     if (this.productIds) {
       for (let id of this.productIds) {
-        if (id <= products.length) {
+        if (id > 0 && id <= products.length) {
           this.products.push(products[id-1]);
         }
       }

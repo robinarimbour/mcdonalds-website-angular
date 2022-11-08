@@ -1,67 +1,79 @@
 
 import { Injectable } from '@angular/core';
-import { Product } from './product';
+import { Product, products, CartItem } from './data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  private items: Product[] = [];
-  private quantity = new Map<number, number>();
+  private items: CartItem[] = [];
   private totalPrice: number = 0;
 
   constructor() { }
 
-  addToCart(product: Product) {
-    if (!this.quantity.has(product.id)) {
-      this.items.push(product);
-      this.quantity.set(product.id, 1);
-    } else {
-      let prevQuantity = this.quantity.get(product.id);
-      this.quantity.set(product.id, prevQuantity! + 1);
+  private getIndex(id: number): number {
+    return this.items.findIndex(item => item.product.id === id);
+  }
+
+  updateQuantity(product: Product, increament: number): void {
+    if (increament === 1) {
+      this.addToCart(product);
+    } else if (increament === -1) {
+      this.removeFromCart(product);
     }
+  }
+
+  addToCart(product: Product): void {
+    let index = this.getIndex(product.id);
+    if (index === -1) {
+      this.items.push({product: product, quantity: 1});
+    } else {
+      this.items[index].quantity++;
+    }
+
     this.totalPrice += product.price;
   }
 
-  removeFromCart(product: Product) {
-    if (this.quantity.has(product.id)) {
-      if (this.quantity.get(product.id) === 1) {
-        const index = this.items.indexOf(product);
-        this.items.splice(index, 1);
-        this.quantity.delete(product.id);
-      } else {
-        let prevQuantity = this.quantity.get(product.id);
-        this.quantity.set(product.id, prevQuantity! - 1);
-      }
-      this.totalPrice -= product.price;
+  removeFromCart(product: Product): void {
+    let index = this.getIndex(product.id);
+    if (index === -1) {
+      return;
+    }
+
+    if (this.items[index].quantity === 1) {
+      this.items.splice(index, 1);
+    } else if (this.items[index].quantity > 1) {
+      this.items[index].quantity--;
+    }
+
+    this.totalPrice -= product.price;
+  }
+
+  // Used in product-details
+  getQuantity(id : number): number {
+    let index = this.getIndex(id);
+    if (index === -1) {
+      return 0;
+    } else {
+      return this.items[index].quantity;
     }
   }
 
-  checkEmptyCart() {
-    return this.items.length === 0;
-  }
-
-  getItems() {
+  getItems(): CartItem[] {
     return this.items;
   }
 
-  getQuantity(id: number) {
-    return this.quantity.get(id);
-  }
-
-  hasQuantity(id: number) {
-    return this.quantity.has(id);
-  }
-
-  getTotalPrice() {
+  getTotalPrice(): number {
     return this.totalPrice;
   }
 
-  clearCart() {
+  getCartSize(): number {
+    return this.items.length;
+  }
+
+  clearCart(): void {
     this.items = [];
-    this.quantity.clear();
     this.totalPrice = 0;
-    return this.items;
   }
 }

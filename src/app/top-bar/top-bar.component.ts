@@ -1,3 +1,6 @@
+import { CartService } from './../cart.service';
+import { Observable } from 'rxjs';
+import { BreakpointService } from './../breakpoint.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor() { }
+  isSmall$: Observable<boolean> = this.breakpointService.isSmall$;
 
-  ngOnInit(): void {
+  constructor(
+    private breakpointService: BreakpointService,
+    private cartService: CartService) { }
+
+  ngOnInit(): void { }
+
+  hideBadge(): boolean {
+    return this.cartService.getCartSize() === 0;
+  }
+
+  getCartSize(): number {
+    return this.cartService.getCartSize();
   }
 
 }

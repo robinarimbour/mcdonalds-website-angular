@@ -1,10 +1,9 @@
-import { mainTitle } from './../my-config';
+import { mainTitle } from './../data';
 import { Title } from '@angular/platform-browser';
 import { CartService } from './../cart.service';
-
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Product, products } from '../product';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Product, products } from '../data';
 
 @Component({
   selector: 'app-product-details',
@@ -14,11 +13,13 @@ import { Product, products } from '../product';
 export class ProductDetailsComponent implements OnInit {
 
   product: Product | undefined;
+  
   constructor(
     private route: ActivatedRoute,
     private cartService: CartService,
-    private title: Title
-    ) { }
+    private title: Title,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
@@ -27,24 +28,16 @@ export class ProductDetailsComponent implements OnInit {
 
     if (this.product) {
       this.title.setTitle(this.product.name + ': ' + mainTitle);
+    } else {
+      this.router.navigate(['/404']);
     }
   }
 
-  addToCart(product: Product) {
-    this.cartService.addToCart(product);
+  updateQuantity(increament: number): void {
+    this.cartService.updateQuantity(this.product!, increament);
   }
 
-  removeFromCart(product: Product) {
-    this.cartService.removeFromCart(product);
+  getQuantity(): number {
+    return this.cartService.getQuantity(this.product!.id);
   }
-
-  checkQuantity(id: number) {
-    // return true if product is not in cart
-    return !this.cartService.hasQuantity(id);
-  }
-
-  getQuantity(id: number) {
-    return this.cartService.getQuantity(id);
-  }
-
 }

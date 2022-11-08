@@ -1,26 +1,36 @@
 
-<div *ngIf="product" class="group">
-    <img src="{{ product.imageFullUrl }}">
-    <div class="text-group">
-        <h1>{{ product.name }}</h1>
-        <ul>
-            <div *ngFor="let description of product.descriptions">
-                <li>{{ description }}</li>
-            </div>
-        </ul>
-        <h2>{{ product.price | currency }}</h2>
-        <div>
-            <div *ngIf="checkQuantity(product.id); then buyButton else qtyButton"></div>
-            <ng-template #buyButton>
-                <button type="button" class="buy-button" (click)="addToCart(product)">Buy</button>
-            </ng-template>
-
-            <ng-template #qtyButton>
-                <button type="button" class="add-button" (click)="removeFromCart(product)">-</button>
-                <button class="qty-span">{{getQuantity(product.id)}}</button>
-                <button type="button" class="add-button" (click)="addToCart(product)">+</button>
-            </ng-template>
-            
-        </div>
+<div *ngIf="product" fxLayout="row" fxLayout.lt-md="column" 
+    fxLayoutAlign="space-evenly" fxLayoutGap.lt-md="40px" class="main-div">
+    <div fxFlex="calc(67%)" fxFlex.lt-md="calc(40% - 40px)">
+        <img [src]="product.imageFullUrl" [alt]="[product.name, 'Image']" class="img-full">
     </div>
+    
+    <mat-card fxFlex="calc(32%)" fxFlex.lt-md="calc(60%)">
+            <mat-card-title>{{ product.name }}</mat-card-title>
+            <mat-card-content>
+                <p *ngFor="let description of product.descriptions">
+                    {{ description }}
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <h2>{{ product.price | currency }}</h2>
+                <div *ngIf="getQuantity() === 0; then buyButton else qtyButton"></div>
+                <ng-template #buyButton>
+                    <button type="button" class="buy-button" aria-label="add item"
+                        (click)="updateQuantity(1)">Add to Cart</button>
+                </ng-template>
+
+                <ng-template #qtyButton>
+                    <button type="button" class="change-qty-button remove" aria-label="remove item"
+                        (click)="updateQuantity(-1)">
+                        <mat-icon>remove</mat-icon>
+                    </button>
+                    <button class="qty-span">{{ getQuantity() }}</button>
+                    <button type="button" class="change-qty-button" aria-label="add item" 
+                        (click)="updateQuantity(1)">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </ng-template>
+            </mat-card-actions>
+    </mat-card>
 </div>

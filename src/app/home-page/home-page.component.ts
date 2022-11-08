@@ -1,5 +1,5 @@
-import { mainTitle } from './../my-config';
-import { Title } from '@angular/platform-browser';
+import { Observable } from 'rxjs';
+import { BreakpointService } from './../breakpoint.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,11 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private title: Title) {
-    this.title.setTitle(mainTitle);
-   }
+  isSmall$: Observable<boolean> = this.breakpointService.isSmall$;
 
-  ngOnInit(): void {
-  }
+  constructor(private breakpointService :BreakpointService) { }
+
+  ngOnInit(): void { }
 
 }

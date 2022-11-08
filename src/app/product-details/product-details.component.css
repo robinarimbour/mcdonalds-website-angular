@@ -1,58 +1,96 @@
 
-.group {
-    display: grid;
-    grid-template-columns: 1.8fr 1fr;
-    margin-top: 150px;
-    margin-right: 20px;
+:host {
+    --buy-button-width: 200px;
+    --buy-button-height: 60px;
 }
 
-.group img {
-    align-self: center;
+.main-div {
+    max-width: var(--body-max-width);
+    margin: 150px auto 20px auto;
 }
 
-.text-group {
-    padding: 20px;
-    text-align: left;
+.img-full {
+    max-width: 100%;
+    margin: auto;
 }
 
-.text-group h1 {
+.mat-card {
+    margin-left: 14px;
+}
+
+.mat-card-title {
     font-size: 50px;
-    text-align: left;
+    font-weight: bolder;
 }
 
-.text-group h2 {
-    margin: 10px 4px;
+.mat-card-content {
+    margin-top: 40px;
 }
 
-.text-group ul {
-    padding: 0;
+.mat-card-content p {
+    margin: 0;
+    font-size: 16px;
 }
 
-.text-group li {
-    list-style: none;
-    padding: 10px 4px;
+.mat-card-actions:last-child {
+    margin: 0;
+    padding-bottom: 8px;
 }
 
 .buy-button {
-    padding: 0;
-    margin: 20px 4px 10px 4px;
-    width: 200px;
-    height: 60px;
-    font-size: 30px;
-    font-family: 'Roboto', sans-serif;
+    margin: 20px 0 0 0;
+    width: var(--buy-button-width);
+    height: var(--buy-button-height);
+    font-size: 20px;
+}
+
+.change-qty-button {
+    width: calc(0.25 * var(--buy-button-width));
+    height: var(--buy-button-height);
+}
+
+.change-qty-button.remove {
+    margin-left: 0;
 }
 
 .qty-span {
     background-color: rgb(205, 205, 205);
     padding: 0;
-    margin: 20px 0px 10px 0px;
-    width: 92px;
-    height: 60px;
+    margin: 20px 0px 0px 0px;
+    width: calc(0.5*var(--buy-button-width) - 8px);
+    height: var(--buy-button-height);
     font-size: 30px;
     font-family: 'Roboto', sans-serif;
-    color: black;
+    cursor:default;
 }
 
 .qty-span:hover {
     background-color: rgba(205, 205, 205, 1);
+}
+
+@media only screen and (max-width: 959.98px) {
+    :host {
+        --buy-button-width: 150px;
+        --buy-button-height: 50px;
+    }
+
+    .mat-card-title {
+        font-size: 30px;
+    }
+
+    .mat-card-content p {
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .buy-button {
+        font-size: 16px;
+    }
+
+    .qty-span {
+        font-size: 24px;
+    }
 }

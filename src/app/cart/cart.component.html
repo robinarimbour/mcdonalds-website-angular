@@ -1,38 +1,54 @@
 
 <h1>My Cart</h1>
 
-<div *ngIf="checkEmptyCart(); then emptyCart else showCart"></div>
+<div *ngIf="isCartEmpty(); then emptyCart else showCart"></div>
 
 <ng-template #emptyCart>
     <h2 class="empty">Looks like your cart is empty!</h2>
 </ng-template>
 
 <ng-template #showCart>
-<div class="cart-grid">
-    <h2 id="extra-padding">Item</h2>
-    <h2>Price</h2>
-    <h2>Subtotal</h2>
-</div>
-<div *ngFor="let item of items" class="cart-grid">
-    <a [routerLink]="['/product', item.id]" class="item-name">
-        <img src="{{item.imageGridUrl}}" width="100px">
-        <h3>{{ item.name }}</h3>
-    </a>
-    <h3>{{ item.price | currency }}</h3>
-    <div class="item-price">
-        <h3>{{ getSubtotalPrice(item.id, item.price) | currency }}</h3>
-        <span>({{ getQuantity(item.id) }} item/s)</span>
+<div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap.lt-md="50px" class="main-div">
+    <div fxFlex.gt-sm="60%">
+        <div *ngFor="let item of getItems()" class="card-container">
+            <div class="card-item">
+                <a [routerLink]="['/product', item.product.id]">
+                    <img [src]="item.product.imageGridUrl">
+                </a>
+            </div>
+            <mat-card class="card-item">
+                <mat-card-title>
+                    <a [routerLink]="['/product', item.product.id]">{{ item.product.name }}</a>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    Price: {{ item.product.price | currency }}<br>
+                    Quantity: {{ item.quantity }}<br>
+                    Subtotal: {{ item.product.price * item.quantity | currency }}
+                </mat-card-subtitle>
+            </mat-card>
+            <div class="card-item">
+                <button type="button" aria-label="remove item" class="change-qty-button" 
+                    (click)="updateQuantity(item.product, -1)">
+                    <mat-icon>remove</mat-icon>
+                </button>
+                <button type="button" aria-label="add item" class="change-qty-button" 
+                    (click)="updateQuantity(item.product, 1)">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
+        </div>
     </div>
-    <div>
-        <button type="button" class="add-button" (click)="removeFromCart(item)">-</button>
-        <button type="button" class="add-button" (click)="addToCart(item)">+</button>
+    <div fxFlex.gt-sm="40%" class="check-container">
+        <div class="check-container-item">
+            <h3>Total:</h3>
+            <h2>{{ getTotalPrice() | currency }}*</h2>
+        </div>
+        <p class="check-container-item">* Shipping charges may apply.</p>
+        <a [routerLink]="['/checkout']" class="check-container-item check-button">
+            <button type="button" aria-label="checkout">Checkout</button>
+        </a>
+        <button type="button" aria-label="clear cart" (click)="clearCart()" 
+        class="check-container-item check-button clear-button">Clear Cart</button>
     </div>
-</div>
-
-<div class="total">
-    <h3>Total:</h3>
-    <h2>{{ getTotalPrice() | currency }}</h2>
-    <a [routerLink]="['/checkout']"><button type="button">Checkout</button></a>
-    <button type="button" (click)="clearCart()" id="clear">Clear Cart</button>
 </div>
 </ng-template>

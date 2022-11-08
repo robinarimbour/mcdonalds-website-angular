@@ -1,8 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Category, categories } from '../product';
-import { Title } from '@angular/platform-browser';
-import { mainTitle } from '../my-config';
+import { Category, categories } from '../data';
 
 @Component({
   selector: 'app-menu-page',
@@ -13,10 +11,7 @@ export class MenuPageComponent implements OnInit {
 
   categories: Category[] = categories;
 
-  constructor(private title: Title) {
-    this.title.setTitle('Our Menu: ' + mainTitle);
-   }
+  constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 }
