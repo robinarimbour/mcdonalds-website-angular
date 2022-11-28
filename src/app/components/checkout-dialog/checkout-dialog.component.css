@@ -1,0 +1,14 @@
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.total {
+    margin: 30px 4px 40px; 
+    font-weight: bold;
+}
+
+.seperate {
+    display: flex;
+    justify-content: space-between;
+}

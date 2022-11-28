@@ -1,0 +1,10 @@
+
+<div class="card-div">
+    <mat-card *ngFor="let product of products">
+        <a [routerLink]="['/products', product.id]">
+            <img mat-card-image width="200px" [src]="product.imageGridUrl" 
+            [alt]="product.name + ' Image'">
+            <mat-card-title>{{ product.name }}</mat-card-title>
+        </a>
+    </mat-card>
+</div>

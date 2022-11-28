@@ -1,0 +1,145 @@
+<h1>Checkout</h1>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+<div class="main-div">
+    <div class="form-div">
+        <h2>1. Personal Information</h2>
+        
+        <div class="form-line">
+            <div class="input-group">
+                <mat-form-field appearance="fill">
+                    <mat-label>First Name</mat-label>
+                    <input matInput placeholder="John" formControlName="firstName" 
+                        required maxlength="20" pattern="[A-Za-z\s]*$">
+                    <mat-error *ngIf="firstName && firstName.invalid">
+                        {{getErrorMessage("firstName")}}</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="input-group">
+                <mat-form-field appearance="fill">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="Doe" formControlName="lastName" 
+                        required maxlength="20" pattern="[A-Za-z\s]*$">
+                    <mat-error *ngIf="lastName && lastName.invalid">
+                        {{getErrorMessage("lastName")}}</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <mat-form-field appearance="fill">
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="55 AI Henderson Drive, Virginia Beach, VA" 
+                    formControlName="address" required maxlength="50">
+                <mat-error *ngIf="address && address.invalid">
+                    {{getErrorMessage("address")}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-line">
+            <div class="input-group">
+                <mat-form-field appearance="fill">
+                    <mat-label>Choose Country</mat-label>
+                    <mat-select formControlName="country" required>
+                        <mat-option selected="selected" disabled="disabled">Choose Country</mat-option>
+                        <mat-option *ngFor="let country of countries" [value]="country">
+                            {{country}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="country && country.invalid">
+                        {{getErrorMessage("country")}}</mat-error>
+                  </mat-form-field>
+            </div>
+
+            <div class="input-group">
+                <mat-form-field appearance="fill">
+                    <mat-label>Postal Code</mat-label>
+                    <input matInput placeholder="32929" formControlName="postalCode" 
+                        required maxlength="8">
+                    <mat-error *ngIf="postalCode && postalCode.invalid">
+                        {{getErrorMessage("postalCode")}}</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <mat-form-field appearance="fill">
+                <mat-label>Phone Number</mat-label>
+                <input matInput placeholder="(212)-345-6789" formControlName="phone" 
+                    required minlength="10" maxlength="10">
+                <mat-error *ngIf="phone && phone.invalid">{{getErrorMessage("phone")}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <h2>2. Payment Details</h2>
+
+        <div class="input-group">
+            <mat-form-field appearance="fill">
+                <mat-label>Credit Card Number</mat-label>
+                <input matInput placeholder="XXXX-XXXX-XXXX-XXXX" formControlName="creditCard" 
+                    pattern="[\d]{4}[\-][\d]{4}[\-][\d]{4}[\-][\d]{4}" required maxlength="19">
+                <mat-error *ngIf="creditCard && creditCard.invalid">
+                    {{getErrorMessage("creditCard")}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-line">
+            <div class="input-group">
+                <mat-form-field appearance="fill">
+                    <mat-label>Security Code</mat-label>
+                    <input matInput [type]="hideCode ? 'password' : 'text'" formControlName="code"
+                        required maxlength="3" pattern="[0-9]{3}">
+                    <button type="button" mat-icon-button matSuffix class="hide-button"
+                        (click)="hideCode = !hideCode" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideCode">
+                      <mat-icon>{{hideCode ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="code && code.invalid">
+                        {{getErrorMessage("code")}}</mat-error>
+                  </mat-form-field>
+            </div>
+
+            <div class="input-group">
+                <mat-form-field appearance="fill">
+                    <mat-label>Expiration Date</mat-label>
+                    <input matInput placeholder="01/02" formControlName="expiry" 
+                        pattern="[\d]{2}[\/][\d]{2}" required maxlength="5">
+                    <mat-error *ngIf="expiry && expiry.invalid">
+                        {{getErrorMessage("expiry")}}</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="bill-div">
+        <h2>Your Order</h2>
+        <br>
+        <div *ngFor="let item of getItems()" class="inline-flex-div">
+            <h4>{{ item.product.name }} ({{ item.quantity }})</h4>
+            <h3>{{ item.product.price * item.quantity | currency }}</h3>
+        </div>
+
+        <br>
+        <br>
+        <div class="inline-flex-div">
+            <h4>Total Purchase</h4>
+            <h3>{{ getTotalPrice() | currency }}</h3>
+        </div>
+
+        <div class="inline-flex-div">
+            <h4>Estimated Tax</h4>
+            <h3>{{ getTax() | currency }}</h3>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <div class="inline-flex-div">
+            <h3>Total</h3>
+            <h2>{{ getSumTotal() | currency }}</h2>
+        </div>
+        
+        <button type="submit" [disabled]="checkoutForm.invalid" 
+            aria-label="confirm order" class="submit-button">Confirm Order</button>
+    </div>
+</div>
+</form>

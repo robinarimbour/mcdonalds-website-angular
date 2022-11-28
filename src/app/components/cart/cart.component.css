@@ -1,0 +1,147 @@
+
+.empty {
+    margin-top: 100px;
+}
+
+.main-div {
+    width: var(--sm-max-width);
+    margin: 20px auto;
+    align-items: flex-start;
+    display: flex;
+}
+
+.cart-items {
+    width: 60%;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.5fr;
+    align-items: center;
+    padding-left: 5%;
+    margin-bottom: 10px;
+}
+
+.card-item img {
+    width: 150px;
+}
+
+.card-item {
+    margin: 0 10px;
+}
+
+.mat-card {
+    padding: 0;
+}
+
+.mat-card-title {
+    font-size: 24px;
+}
+
+.mat-card-title a {
+    color: inherit;
+}
+
+.mat-card-title a:hover {
+    text-decoration: underline;
+}
+
+.mat-card-subtitle {
+    font-size: 16px;
+}
+
+.change-qty-button {
+    width: 35px;
+    height: 35px;
+}
+
+.change-qty-button .mat-icon {
+    transform: scale(0.7);
+}
+
+.check-container {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.check-container p {
+    font-size: small;
+}
+
+.check-container-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.check-button, .check-button button {
+    width: 140px;
+    height: 50px;
+    font-size: 18px;
+}
+
+.clear-button {
+    background-color: var(--cart-red);
+    color: white;
+}
+
+.clear-button:hover {
+    background-color: var(--cart-red-hover);
+}
+
+@media only screen and (max-width: 959.98px) {
+    .empty {
+        font-size: large;
+    }
+
+    .main-div {
+        width: 100%;
+        display: grid;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .cart-items {
+        width: inherit;
+    }
+
+    .check-container {
+        width: inherit;
+    }
+
+    .card-container {
+        padding-left: 0;
+    }
+
+    .mat-card-title {
+        font-size: 16px;
+    }
+    
+    .mat-card-subtitle {
+        font-size: auto;
+    }
+    
+    .card-item img {
+        width: 100px;
+    }
+
+    .change-qty-button {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .check-container p {
+        font-size: x-small;
+    }    
+    
+    .check-button, .check-button button {
+        width: 120px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+}
