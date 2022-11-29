@@ -12,6 +12,10 @@ export interface Category {
     name: string,
     products: number[]
 }
+export interface MenuCategory {
+    selected: boolean,
+    category: Category
+}
 
 
 // product class

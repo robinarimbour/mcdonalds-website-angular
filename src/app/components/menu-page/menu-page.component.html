@@ -1,9 +1,20 @@
 
 <h1>Our Menu</h1>
 
-<div *ngFor="let category of categories" class="category">
-    <h2>{{ category.name }}</h2>
-
-    <app-product-list [productIds]="category.products">
-    </app-product-list>
+<div class="chip-container">
+    <mat-chip-list aria-label="category selection">
+        <mat-chip *ngFor="let menuCategory of menuCategories" color="accent" 
+        (click)="changeSelection(menuCategory)" [selected]="menuCategory.selected">
+            {{ menuCategory.category.name }}
+        </mat-chip>
+    </mat-chip-list>
 </div>
+
+<ng-container *ngFor="let menuCategory of menuCategories">
+    <div *ngIf="showAll || menuCategory.category.id == showCartId" class="category">
+        <h2>{{ menuCategory.category.name }}</h2>
+
+        <app-product-list [productIds]="menuCategory.category.products">
+        </app-product-list>
+    </div>
+</ng-container>

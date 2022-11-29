@@ -1,4 +1,13 @@
 
+.chip-container {
+    margin: 20px 50px;
+}
+
+.mat-standard-chip {
+    border-radius: 20px;
+    min-height: 50px;
+}
+
 .category {
     text-align: center;
     margin: 20px 0px;
@@ -13,5 +22,10 @@
     .category h2 {
         margin: 45px 0 30px;
         font-size: 25px;
+    }
+
+    .mat-standard-chip {
+        border-radius: 16px;
+        min-height: 32px;
     }
 }

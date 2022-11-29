@@ -62,7 +62,7 @@
     text-align: center;
 }
 
-.nav-links a:hover, .big-cart:hover {
+.nav-links a:hover {
     background-color: var(--mcdonalds-yellow);
 }
 
