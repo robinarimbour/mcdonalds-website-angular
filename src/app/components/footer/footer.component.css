@@ -21,7 +21,6 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-evenly;
-    flex-basis: calc(20%-25px);
 }
 
 .mat-expansion-panel {
